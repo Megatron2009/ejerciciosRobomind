@@ -1,0 +1,69 @@
+# Programa: Pinta punt + quadrat
+# Autor: Raúl Salas Sahuquillo
+# Data: 13/01/2022
+# Mapa: findSpot2 ( modificar linea per findSpot1 )
+# Descripció:
+#    Pintar un punt + fer un quadrat al
+#    voltant de la piscina
+
+# INICI DEL PROGRAMA ----------------------------------------------
+pintaUnPunt( 0 )
+buscaPiscina( )
+# Mofificar per findSpot2 sud(1)
+# Mofificar per findSpot1 oest(1)
+oest(1)
+dibuixaQuadrat( 3, 1 )
+# FINAL -----------------------------------------------------------
+
+
+# Funció que faré servir si necessito pintar
+# un punt
+procediment pintaUnPunt( color ) {
+   si( color == 0 ) {
+       pintaNegre
+   } sino {
+       pintaBlanc
+   }
+   dreta
+   esquerra
+   noPintis
+}
+   
+procediment buscaPiscina() {
+    repetir()
+    {
+        si( esquerraEsObstacle() ) {
+           endavant(1)
+        }
+       
+        si( esquerraEsBlanc() ) {
+           dreta
+        }
+       
+        si( dretaEsLliure() )
+        {
+           endavant    
+        } sino {
+           nord
+        }
+       
+        si( davantEsObstacle() )
+        {
+           prou
+        }
+    }    
+}
+
+# Funció per repetir en altres programes per fer quadrats
+procediment dibuixaQuadrat( tamany, color ) {
+   si( color == 0 ) {
+       pintaNegre
+   } sino {
+       pintaBlanc
+   }
+   est( tamany - 1 )
+   nord( tamany - 1 )
+   oest( tamany - 1 )
+   sud( tamany - 1 )
+   fi
+}
