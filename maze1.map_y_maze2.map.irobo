@@ -1,0 +1,44 @@
+# Programa: Supera els laberints amb només un scrip
+# Autor: Raúl Salas Sahuquillo
+# Data: 25/01/2022
+# Mapa: maze1.map / maze2.map
+# Descripció:
+#    Superar el laberint
+#    Agafar bomba
+#    Segueixo la paret del laberint per la dreta tota l'estona
+#    sempre que pugui tirarà el robot cap a la dreta
+
+# INICI DEL PROGRAMA ----------------------------------------------
+SegueixParetLaberint
+# FINAL -----------------------------------------------------------
+
+
+procediment SegueixParetLaberint( ){
+   repetir{
+        si(davantEsObjecte) {
+            agafa
+            saluda()
+            endavant
+            prou
+        }
+        segueixParetDreta()
+    }
+}
+
+procediment segueixParetDreta( ) {
+    si(dretaEsObstacle) {
+        si(davantEsObstacle) {
+            esquerra
+        }            
+        endavant
+    } sino {
+        dreta
+        endavant
+    }
+}
+
+procediment saluda() {
+    repetir(4){
+        dreta
+    }
+}
